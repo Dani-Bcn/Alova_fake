@@ -1,55 +1,36 @@
 ---
-   import Button from "../shared/Button.astro";
-   import Container from "../shared/Container.astro";
-   import Paragraph from "../shared/Paragraph.astro";
-   
+import Button from "../shared/Button.astro";
+import Container from "../shared/Container.astro";
+import Paragraph from "../shared/Paragraph.astro";
 ---
-
 
 <script>
   import gsap from "gsap";
+  import { fromJSON } from "postcss";
 
   // Esperamos a que el DOM esté cargado
- document.addEventListener("DOMContentLoaded", () => {
-    const titulo = document.querySelector<HTMLHeadingElement>(".titulo");
 
-    if (!titulo) return; // 🔒 seguridad ante null
+  const titulo = document.querySelector<HTMLHeadingElement>(".titulo");
 
-    const tl = gsap.timeline()
-
-    tl.from(titulo, { opacity: 0, y: 40, duration: 1 })
-      .to(titulo, { opacity: 0, duration: 0.6, delay: 2 })
-      .call(() => {
-        titulo.textContent = "Disfruta de la experiencia";
-      }) // ✅ la callback no devuelve nada
-      .to(titulo, { opacity: 1, duration: 2 })
-      .call(() => {
-        titulo.textContent = "LOGÍSTICA INTEGRAL";
-      }) // ✅ la callback no devuelve nada
-  });
+  if (titulo)
+    titulo.textContent =
+      "Logística 4.0, Conecta tu tienda online desde nuestrs almacenes";
 </script>
-
-
 <div
   class="relative flex flex-col items-center text-center lg:text-left lg:py-7 xl:py-8
         lg:items-start lg:max-w-none max-w-3xl mx-auto lg:mx-0 lg:flex-1 lg:w-1/2 text-slate-300"
 >
   <h1
-    class="frase h_1 text-3xl/tight sm:text-4xl/tight md:text-5xl/tight xl:text-6xl/tight
-             font-bold text-heading-1"
+    class="titulo h-38 text-3xl/tight sm:text-4xl/tight md:text-5xl/tight xl:text-6xl/tight font-bold text-heading-1"
   >
-    SOLUCION DE <span
-      class="titulo text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600"
-      >LOGÍSTICA INTEGRAL</span
-    > PARA TU EMPRESA.
   </h1>
   <div class="flex flex-col">
-    <h2 class="mt-8">
+    <h1 class="titulo h-18 xl:h-10 font-bold text-heading-1">
       Transporte, almacenaje, manipulado y distribución eficiente
-    </h2>
+    </h1>
     <p>
       En <span
-        class="text-transparent bg-clip-text font-black bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600"
+        class="titulo text-heading-1 bg-clip-text font-black bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600"
         >Actividades Logísticas del Vallés</span
       > ofrecemos soluciones de almacenaje, logística y manipulado según las necesidades
       específicas de cada cliente. Ubicación Estratégica en Barcelona Estamos ubicados
